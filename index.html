@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fabiano Pires · Comercial, Vendas e Operações</title>
+<style>
+:root{--navy:#0f2a43;--orange:#e8590c;--ink:#1d2733;--muted:#5b6b7a;--bg:#f4f6f8;--card:#ffffff;--line:#e3e8ee;--soft:#eef3f8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+.nav{position:sticky;top:0;z-index:50;background:rgba(15,42,67,.97);color:#fff;backdrop-filter:blur(6px);box-shadow:0 2px 10px rgba(0,0,0,.15)}
+.nav .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:12px 20px}
+.brand{font-weight:800;letter-spacing:.3px;font-size:1.05rem}
+.brand span{color:var(--orange)}
+.menu{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.menu a{padding:8px 12px;border-radius:8px;font-size:.92rem;color:#dbe4ee;transition:.2s;cursor:pointer}
+.menu a:hover{background:rgba(255,255,255,.12);color:#fff}
+.menu a.active{background:var(--orange);color:#fff}
+.wa-btn{background:#25d366;color:#fff!important;padding:8px 14px;border-radius:8px;font-weight:700}
+
+.hero{background:linear-gradient(135deg,var(--navy),#16385a);color:#fff;padding:48px 0}
+.hero .wrap{display:grid;grid-template-columns:240px 1fr;gap:34px;align-items:center}
+.photo{width:240px;height:240px;border-radius:18px;object-fit:cover;object-position:center 30%;border:4px solid rgba(255,255,255,.25);box-shadow:0 12px 30px rgba(0,0,0,.3)}
+.photo.rot{transform:rotate(-90deg)}
+.hero h1{font-size:2rem;line-height:1.2}
+.hero .role{color:var(--orange);font-weight:700;margin:6px 0 14px;text-transform:uppercase;letter-spacing:1px;font-size:.85rem}
+.hero p{color:#cfd9e4;max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;font-size:.9rem}
+.meta a{background:rgba(255,255,255,.1);padding:6px 12px;border-radius:20px}
+.meta a:hover{background:var(--orange)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:-26px 0 0;position:relative}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center;box-shadow:0 8px 22px rgba(15,42,67,.06)}
+.stat b{display:block;font-size:1.5rem;color:var(--orange)}
+.stat small{color:var(--muted)}
+
+section{padding:46px 0}
+.sec-title{font-size:1.4rem;margin-bottom:6px}
+.sec-sub{color:var(--muted);margin-bottom:24px}
+.grid{display:grid;gap:18px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 6px 18px rgba(15,42,67,.05);transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(15,42,67,.10)}
+.card .ico{font-size:1.6rem}
+.card h3{margin:8px 0 6px;font-size:1.1rem}
+.card p{color:var(--muted);font-size:.95rem}
+.more{display:inline-block;margin-top:12px;color:var(--orange);font-weight:700;cursor:pointer}
+.more::after{content:" →"}
+
+.tl{border-left:2px solid var(--line);padding-left:22px;margin-left:6px}
+.tl-item{position:relative;margin-bottom:26px}
+.tl-item::before{content:"";position:absolute;left:-29px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--orange);border:3px solid var(--card)}
+.tl-item h4{font-size:1.05rem}
+.tl-item .date{color:var(--muted);font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.tl-item ul{margin:8px 0 0 18px;color:var(--ink)}
+.tl-item li{margin-bottom:4px}
+
+.hl{background:var(--soft);border-left:4px solid var(--orange);border-radius:10px;padding:16px 18px;margin:18px 0}
+.hl b{color:var(--navy)}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.tag{background:var(--soft);color:var(--navy);padding:5px 12px;border-radius:20px;font-size:.85rem;font-weight:600}
+
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:700;cursor:pointer;border:0;font-size:.95rem}
+.btn-primary{background:var(--orange);color:#fff}
+.btn-ghost{background:transparent;border:2px solid var(--navy);color:var(--navy)}
+.btn-navy{background:var(--navy);color:#fff}
+
+footer{background:var(--navy);color:#cfd9e4;padding:34px 0;margin-top:20px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+footer a{color:#fff;font-weight:600}
+.wa-float{position:fixed;right:18px;bottom:18px;background:#25d366;color:#fff;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 8px 20px rgba(0,0,0,.25);z-index:60}
+
+.sub-hero{background:linear-gradient(135deg,var(--navy),#16385a);color:#fff;padding:40px 0}
+.sub-hero .wrap{display:grid;grid-template-columns:1fr 220px;gap:28px;align-items:center}
+.sub-hero h1{font-size:1.8rem}
+.sub-hero .role{color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:.8rem}
+.sub-hero p{color:#cfd9e4;margin-top:10px}
+
+.print-bar{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+
+@media print{
+  .nav,.wa-float,.wa-btn,.print-bar,.more,.btn{display:none!important}
+  body{background:#fff;color:#000}
+  .hero,.sub-hero{background:#fff!important;color:#000!important;padding:10px 0}
+  .hero p,.sub-hero p,.hero .meta a,.hero .role,.sub-hero .role{color:#000!important}
+  .hero .meta a{border:1px solid #999}
+  .card,.stat,.hl,.tl-item{box-shadow:none!important;border-color:#bbb!important;background:#fff!important}
+  .photo{border-color:#999}
+  section{padding:14px 0}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .subpage{display:none!important}
+  #view-home{display:block!important}
+  @page{margin:14mm}
+}
+
+@media(max-width:820px){
+  .hero .wrap,.sub-hero .wrap{grid-template-columns:1fr;text-align:center}
+  .photo{margin:0 auto}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .g3,.g2{grid-template-columns:1fr}
+  .menu{margin-left:0;width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <div class="brand">FABIANO <span>PIRES</span></div>
+  <div class="menu">
+    <a onclick="showPage('home')" id="nav-home" class="active">Home</a>
+    <a onclick="showPage('comercial')" id="nav-comercial">Comercial</a>
+    <a onclick="showPage('gestao')" id="nav-gestao">Gestão</a>
+    <a onclick="showPage('empreendedora')" id="nav-empreendedora">Empreendedora</a>
+    <a onclick="showPage('lideranca')" id="nav-lideranca">Liderança</a>
+    <a onclick="showPage('proativo')" id="nav-proativo">Proativo</a>
+    <a onclick="showPage('artistica')" id="nav-artistica">Artística</a>
+    <a class="wa-btn" href="https://wa.me/5547999974551" target="_blank">WhatsApp</a>
+  </div>
+</div></nav>
+
+<!-- HOME VIEW -->
+<div id="view-home" class="view-section">
+  <header class="hero"><div class="wrap">
+    <img class="photo" src="fabiano-home.jpg" alt="Fabiano Pires">
+    <div>
+      <h1>Fabiano Correia Pires Monteiro</h1>
+      <div class="role">Comercial · Vendas · Operações</div>
+      <p>Profissional com mais de 15 anos em vendas, gestão de equipes e relacionamento com clientes, fornecedores e bancos — nos setores imobiliário, construção civil e distribuição. Abro e mantenho carteira, negocio financiamentos, controlo obras e faço marketing digital. Empreendedor, disciplinado e orientado a metas.</p>
+      <div class="meta">
+        <a href="https://wa.me/5547999974551" target="_blank">📱 (47) 99997-4551</a>
+        <a href="mailto:cpm.fabiano@gmail.com">✉️ cpm.fabiano@gmail.com</a>
+        <a href="https://www.linkedin.com/in/fabianocpm/" target="_blank">in/LinkedIn</a>
+        <a href="https://www.instagram.com/fabianopires.sc/" target="_blank">📸 Instagram</a>
+        <a href="https://cpmfabiano.wixsite.com/curriculo" target="_blank">🌐 Portfólio</a>
+      </div>
+      <div class="print-bar">
+        <button class="btn btn-primary" onclick="window.print()">⬇️ Baixar currículo em PDF</button>
+        <a class="btn btn-ghost" href="#fique">Fique por dentro ↓</a>
+      </div>
+    </div>
+  </div></header>
+
+  <div class="wrap"><div class="stats">
+    <div class="stat"><b>60</b><small>clientes ativos na carteira</small></div>
+    <div class="stat"><b>+15</b><small>anos de experiência</small></div>
+    <div class="stat"><b>5</b><small>cidades atendidas</small></div>
+    <div class="stat"><b>2</b><small>elogios em B.I. (Exército)</small></div>
+  </div></div>
+
+  <section id="fique"><div class="wrap">
+    <h2 class="sec-title">Fique por dentro</h2>
+    <p class="sec-sub">Clique em uma área para ver detalhes das funções, resultados e exemplos reais do meu trabalho.</p>
+    <div class="grid g3">
+      <div class="card"><div class="ico">🤝</div><h3>Comercial</h3><p>Vendas, representação, corretagem, CRM, negociação com bancos e fornecedores.</p><a class="more" onclick="showPage('comercial')">Veja mais</a></div>
+      <div class="card"><div class="ico">🏗️</div><h3>Gestão &amp; Operações</h3><p>Equipes de obra, cronograma, medição, compras, controle financeiro e documentação.</p><a class="more" onclick="showPage('gestao')">Veja mais</a></div>
+      <div class="card"><div class="ico">🚀</div><h3>Empreendedora</h3><p>Autônomo em várias frentes, abrir carteira, sites, redes sociais e uso prático de IA.</p><a class="more" onclick="showPage('empreendedora')">Veja mais</a></div>
+      <div class="card"><div class="ico">👑</div><h3>Liderança</h3><p>Liderar equipes, disciplina militar, comunicação e gestão de relacionamentos.</p><a class="more" onclick="showPage('lideranca')">Veja mais</a></div>
+      <div class="card"><div class="ico">⚡</div><h3>Proatividade</h3><p>Adaptabilidade entre setores, iniciativa, aprendizado de novas ferramentas e foco em resultado.</p><a class="more" onclick="showPage('proativo')">Veja mais</a></div>
+      <div class="card"><div class="ico">🎨</div><h3>Área Artística</h3><p>Criação de peças publicitárias, sinalização digital, design de sites e conteúdo visual.</p><a class="more" onclick="showPage('artistica')">Veja mais</a></div>
+    </div>
+  </div></section>
+
+  <section style="background:var(--soft)"><div class="wrap">
+    <h2 class="sec-title">Experiência profissional</h2>
+    <div class="tl">
+      <div class="tl-item"><span class="date">08/2025 – 02/2026</span><h4>Vendedor Representante · Samukinha Delícias Gourmet</h4><ul><li>Abri e geri carteira com 60 clientes ativos (padarias, mercados, cafés, lanchonetes) em Itajaí, Navegantes, Penha, Piçarras e Barra Velha.</li><li>Prospecção, venda, entrega, pós-venda e relacionamento.</li></ul></div>
+      <div class="tl-item"><span class="date">04/2022 – 12/2023</span><h4>Diretor Comercial · Melo e Pires</h4><ul><li>Captação, gestão e relacionamento com clientes e fornecedores; fortalecimento da carteira e parcerias.</li><li>Acompanhamento de obras e documentação; pesquisa e marketing para novos produtos.</li></ul></div>
+      <div class="tl-item"><span class="date">01/2017 – 04/2022</span><h4>Autônomo · Corretor, Marketing Digital e Representante</h4><ul><li>Venda e captação de imóveis, permutas e financiamentos bancários.</li><li>Criação e gestão de sites e redes sociais para pequenas empresas.</li><li>Representação de materiais de construção (tijolos e ferragens).</li><li>Motorista de aplicativo (Uber/99) por +1 ano, com foco em atendimento.</li></ul></div>
+      <div class="tl-item"><span class="date">06/2015 – 01/2017</span><h4>Corretor de Imóveis · Alfamix Imóveis</h4><ul><li>Vendas, captação, atendimento e divulgação digital de imóveis.</li></ul></div>
+      <div class="tl-item"><span class="date">04/2013 – 05/2015</span><h4>Gerente de Operações · Loteamentos e Casas</h4><ul><li>Gestão comercial e administrativa, liderando equipes de construção civil.</li><li>Planilha de medição que alinhou pagamentos à execução real, cortando custos e desperdício.</li><li>Compras, fornecedores, financiamentos com bancos e relatórios em CRM.</li></ul></div>
+      <div class="tl-item"><span class="date">02/2012 – 12/2012</span><h4>Gestão Comercial e Marketing · Direta Mídia Indoor</h4><ul><li>Prospecção e implantação de TV corporativa e sinalização digital em lotéricas; instalação e carteira ativa.</li></ul></div>
+      <div class="tl-item"><span class="date">2010 – 2011</span><h4>Vendedor / Almoxarife · Coml Boa Morada (construção)</h4><ul><li>Vendas, orçamentos, estoque, conferência e pós-venda.</li></ul></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <h2 class="sec-title">Competências</h2>
+    <div class="grid g2">
+      <div class="card"><h3>Comercial</h3><div class="tags"><span class="tag">Prospecção</span><span class="tag">Negociação</span><span class="tag">Carteira de clientes</span><span class="tag">CRM / funil</span><span class="tag">Propostas</span></div></div>
+      <div class="card"><h3>Operações</h3><div class="tags"><span class="tag">Fornecedores/compras</span><span class="tag">Controle de obras</span><span class="tag">Liderança de equipes</span><span class="tag">Medição</span></div></div>
+      <div class="card"><h3>Marketing Digital</h3><div class="tags"><span class="tag">Meta Ads</span><span class="tag">Google Ads</span><span class="tag">SEO</span><span class="tag">Redes sociais</span><span class="tag">Wix</span><span class="tag">Canva</span></div></div>
+      <div class="card"><h3>Tecnologia</h3><div class="tags"><span class="tag">Pacote Office</span><span class="tag">IA aplicada</span><span class="tag">Sites</span><span class="tag">App web próprio</span></div></div>
+    </div>
+  </div></section>
+
+  <section style="background:var(--soft)"><div class="wrap">
+    <h2 class="sec-title">Formação</h2>
+    <ul style="margin-left:18px">
+      <li>Técnico em Transações Imobiliárias</li>
+      <li>Ensino Superior incompleto – Marketing (Unopar)</li>
+      <li>Desenvolvimento Gerencial – Sebrae</li>
+      <li>Ensino Médio completo</li>
+      <li>Exército Brasileiro (1994–1998), Hospital Militar de Brasília — 2 elogios em Boletim Interno por dedicação e disciplina.</li>
+    </ul>
+  </div></section>
+</div>
+
+<!-- SUBPAGES -->
+<div id="view-comercial" class="view-section subpage" style="display:none">
+  <header class="sub-hero"><div class="wrap"><div><div class="role">🤝 Área Comercial</div><h1>Vendas, Representação e Corretagem</h1><p>Abro carteira do zero, negocio com clientes, fornecedores e bancos, e mantenho relacionamento de pós-venda. Foco em meta, funil e resultado.</p></div><img class="photo" src="fabiano-home.jpg" alt="Fabiano"></div></header>
+  <section><div class="wrap"><h2 class="sec-title">O que eu faço na área comercial</h2>
+    <div class="grid g2">
+      <div class="card"><h3>Vendas e representação</h3><p>Prospecção, apresentação, venda, entrega e pós-venda de produtos (doces gourmet e materiais de construção — tijolos e ferragens).</p></div>
+      <div class="card"><h3>Corretagem imobiliária</h3><p>Captação e venda de imóveis, negociação de permutas e financiamentos bancários.</p></div>
+      <div class="card"><h3>Negociação</h3><p>Relacionamento com clientes, fornecedores e instituições financeiras; propostas e apresentações comerciais.</p></div>
+      <div class="card"><h3>Gestão de carteira</h3><p>Uso de CRM, funil de vendas e estratégias de acompanhamento para manter a carteira ativa.</p></div>
+    </div>
+    <div class="hl"><b>Resultado real:</b> carteira de <b>60 clientes ativos</b> aberta e mantida em <b>5 cidades</b> (Itajaí, Navegantes, Penha, Balneário Piçarras e Barra Velha).</div>
+    <div class="print-bar"><a class="btn btn-navy" onclick="showPage('home')">← Voltar para a Home</a><a class="btn btn-ghost" onclick="showPage('gestao')">Próxima: Gestão &amp; Operações →</a></div>
+  </div></section>
+</div>
+
+<div id="view-gestao" class="view-section subpage" style="display:none">
+  <header class="sub-hero"><div class="wrap"><div><div class="role">🏗️ Gestão &amp; Operações</div><h1>Obras, Equipes e Controle Financeiro</h1><p>Gerencio equipes de construção civil, cronogramas, compras e fornecedores. Transformo execução em controle financeiro — pago pelo que foi feito.</p></div><img class="photo rot" src="fabiano-obras.jpg" alt="Fabiano em obra"></div></header>
+  <section><div class="wrap"><h2 class="sec-title">O que eu faço em gestão e operações</h2>
+    <div class="grid g2">
+      <div class="card"><h3>Planejamento e controle de obras</h3><p>Cronogramas, metas, produtividade e acompanhamento de empreendimentos (loteamentos e casas).</p></div>
+      <div class="card"><h3>Documentação</h3><p>Gestão completa da documentação relacionada aos empreendimentos.</p></div>
+      <div class="card"><h3>Compras e fornecedores</h3><p>Negociação, análise de custos, controle de entregas e pós-venda.</p></div>
+      <div class="card"><h3>Controle financeiro</h3><p>Planilha de medição de serviços: pagamento alinhado ao que foi efetivamente executado.</p></div>
+    </div>
+    <div class="hl"><b>Case de resultado:</b> criei a <b>planilha de medição</b> que organizou o controle financeiro da obra, <b>reduzindo custos e eliminando desperdícios</b> ao vincular pagamentos à execução real.</div>
+    <div class="print-bar"><a class="btn btn-navy" onclick="showPage('home')">← Voltar para a Home</a><a class="btn btn-ghost" onclick="showPage('empreendedora')">Próxima: Empreendedora →</a></div>
+  </div></section>
+</div>
+
+<div id="view-empreendedora" class="view-section subpage" style="display:none">
+  <header class="sub-hero"><div class="wrap"><div><div class="role">🚀 Perfil Empreendedor</div><h1>Várias Frentes, Um Só Dono do Resultado</h1><p>Atuei como autônomo em múltiplas frentes ao mesmo tempo — imobiliário, marketing digital, representação e serviços — sempre buscando o melhor resultado com resiliência.</p></div><img class="photo" src="fabiano-home.jpg" alt="Fabiano"></div></header>
+  <section><div class="wrap"><h2 class="sec-title">O que caracteriza meu lado empreendedor</h2>
+    <div class="grid g2">
+      <div class="card"><h3>Múltiplas frentes</h3><p>Corretagem + marketing digital + representação comercial + motorista de app (Uber/99) por mais de 1 ano.</p></div>
+      <div class="card"><h3>Abertura de carteira</h3><p>Construí e mantive carteira de clientes do zero em 5 cidades.</p></div>
+      <div class="card"><h3>Marketing como serviço</h3><p>Criei e gerenciei sites e redes sociais para pequenas empresas e negócios locais.</p></div>
+      <div class="card"><h3>IA aplicada ao negócio</h3><p>Uso prático de ferramentas de IA para desenvolver sites e um aplicativo web próprio.</p></div>
+    </div>
+    <div class="hl"><b>Resiliência e metas:</b> conforto em ambientes dinâmicos, com metas e processos — empreendedor que se adapta e entrega.</div>
+    <div class="print-bar"><a class="btn btn-navy" onclick="showPage('home')">← Voltar para a Home</a><a class="btn btn-ghost" onclick="showPage('lideranca')">Próxima: Liderança →</a></div>
+  </div></section>
+</div>
+
+<div id="view-lideranca" class="view-section subpage" style="display:none">
+  <header class="sub-hero"><div class="wrap"><div><div class="role">👑 Liderança</div><h1>Disciplina, Comunicação e Gestão de Pessoas</h1><p>Liderei equipes de construção civil e gerenciei relacionamentos com clientes, fornecedores e bancos. Disciplina forjada no Exército, aplicada no dia a dia.</p></div><img class="photo" src="fabiano-home.jpg" alt="Fabiano"></div></header>
+  <section><div class="wrap"><h2 class="sec-title">Como eu lidero</h2>
+    <div class="grid g2">
+      <div class="card"><h3>Equipes operacionais</h3><p>Liderança de equipes de construção civil com foco em metas, produtividade e segurança.</p></div>
+      <div class="card"><h3>Disciplina militar</h3><p>4 anos no Hospital Militar de Brasília (Exército), com <b>2 elogios em Boletim Interno</b> por dedicação e excelência.</p></div>
+      <div class="card"><h3>Relacionamento</h3><p>Comunicação eficaz com clientes, fornecedores e instituições financeiras.</p></div>
+      <div class="card"><h3>Resolução de problemas</h3><p>Visão estratégica para destravar entregas e alinhar equipe aos objetivos.</p></div>
+    </div>
+    <div class="hl"><b>Estilo:</b> liderança pelo exemplo, disciplina e comunicação clara — do canteiro de obras à mesa de negociação.</div>
+    <div class="print-bar"><a class="btn btn-navy" onclick="showPage('home')">← Voltar para a Home</a><a class="btn btn-ghost" onclick="showPage('proativo')">Próxima: Proatividade →</a></div>
+  </div></section>
+</div>
+
+<div id="view-proativo" class="view-section subpage" style="display:none">
+  <header class="sub-hero"><div class="wrap"><div><div class="role">⚡ Proatividade</div><h1>Adaptação, Iniciativa e Fome de Aprender</h1><p>Transitei por vários setores e ferramentas sem perder o ritmo. Crio soluções (como a planilha de medição) e aprendo o que for preciso para entregar resultado.</p></div><img class="photo" src="fabiano-home.jpg" alt="Fabiano"></div></header>
+  <section><div class="wrap"><h2 class="sec-title">Proatividade na prática</h2>
+    <div class="grid g2">
+      <div class="card"><h3>Adaptabilidade entre setores</h3><p>Imobiliário, construção, autopeças, distribuição, alimentos gourmet e serviços de aplicativo.</p></div>
+      <div class="card"><h3>Iniciativa</h3><p>Criei a planilha de medição por conta própria para resolver um problema de controle financeiro.</p></div>
+      <div class="card"><h3>Aprendizado contínuo</h3><p>Dominei Meta Ads, Google Ads, SEO, CRM, Wix, Canva e ferramentas de IA na prática.</p></div>
+      <div class="card"><h3>Orientação ao cliente</h3><p>Mais de 1 ano como motorista de app desenvolvendo relacionamento e atendimento.</p></div>
+    </div>
+    <div class="hl"><b>Flexível por natureza:</b> abro para diferentes setores e desafios, sempre buscando os melhores resultados.</div>
+    <div class="print-bar"><a class="btn btn-navy" onclick="showPage('home')">← Voltar para a Home</a><a class="btn btn-ghost" onclick="showPage('artistica')">Próxima: Área Artística →</a></div>
+  </div></section>
+</div>
+
+<div id="view-artistica" class="view-section subpage" style="display:none">
+  <header class="sub-hero"><div class="wrap"><div><div class="role">🎨 Área Artística &amp; Criativa</div><h1>Publicidade, Design Visual e Conteúdo</h1><p>Crio peças de publicidade, sinalização digital e identidades visuais para sites e redes. A parte criativa do marketing que faz o negócio ser visto.</p></div><img class="photo" src="fabiano-home.jpg" alt="Fabiano"></div></header>
+  <section><div class="wrap"><h2 class="sec-title">O lado criativo do meu trabalho</h2>
+    <div class="grid g2">
+      <div class="card"><h3>Peças de publicidade</h3><p>Elaboração de projetos e peças publicitárias (Direta Mídia Indoor) e acompanhamento de resultados.</p></div>
+      <div class="card"><h3>Sinalização digital</h3><p>TV corporativa e sinalização digital em lotéricas — do projeto à instalação.</p></div>
+      <div class="card"><h3>Design de sites</h3><p>Criação de websites e identidade visual com Wix e Canva (básico/intermediário).</p></div>
+      <div class="card"><h3>Conteúdo para redes</h3><p>Estratégia, engajamento e métricas em Instagram, Facebook e LinkedIn.</p></div>
+    </div>
+    <div class="hl"><b>Criatividade com propósito:</b> design e conteúdo a serviço de vendas e posicionamento — não é só bonito, é funcional.</div>
+    <div class="print-bar"><a class="btn btn-navy" onclick="showPage('home')">← Voltar para a Home</a><a class="btn btn-ghost" onclick="showPage('comercial')">Próxima: Comercial →</a></div>
+  </div></section>
+</div>
+
+<footer><div class="wrap">
+  <div>Disponível para entrevistas · Balneário Piçarras – SC</div>
+  <div><a href="https://wa.me/5547999974551" target="_blank">WhatsApp</a> · <a href="mailto:cpm.fabiano@gmail.com">E-mail</a> · <a href="https://cpmfabiano.wixsite.com/curriculo" target="_blank">Portfólio</a></div>
+</div></footer>
+
+<a class="wa-float" href="https://wa.me/5547999974551" target="_blank">💬</a>
+
+<script>
+function showPage(pageId) {
+  document.querySelectorAll('.view-section').forEach(el => el.style.display = 'none');
+  document.getElementById('view-' + pageId).style.display = 'block';
+  
+  document.querySelectorAll('.menu a').forEach(el => el.classList.remove('active'));
+  const navLink = document.getElementById('nav-' + pageId);
+  if (navLink) navLink.classList.add('active');
+  
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
